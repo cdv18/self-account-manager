@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./back_end
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
+    volumes:
+      - ./back_end:/app
+    command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build: ./front-end
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./front-end:/app
+      - /app/node_modules
+    command: npm run dev -- --host 0.0.0.0
+
+networks:
+  default:
+    driver: bridge
