@@ -1,0 +1,8 @@
+// ===========================================
+// Main SCSS Entry Point
+// ===========================================
+
+// 1. Abstract - Variables, mixins, functions (không tạo CSS)
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';

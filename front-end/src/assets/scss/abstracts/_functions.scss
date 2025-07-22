@@ -1,0 +1,63 @@
+// ===========================================
+// SCSS Functions
+// ===========================================
+
+// Color Functions
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// Spacing Function
+@function spacing($key) {
+  @return map-get($spacers, $key);
+}
+
+// Convert px to rem
+@function rem($px, $base: 16) {
+  @return #{$px / $base}rem;
+}
+
+// Convert px to em
+@function em($px, $base: 16) {
+  @return #{$px / $base}em;
+}
+
+// Strip unit from number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @return $number;
+}
+
+// Z-index function
+@function z($name) {
+  $z-indexes: (
+    'dropdown': $z-index-dropdown,
+    'sticky': $z-index-sticky,
+    'fixed': $z-index-fixed,
+    'modal-backdrop': $z-index-modal-backdrop,
+    'modal': $z-index-modal,
+    'popover': $z-index-popover,
+    'tooltip': $z-index-tooltip
+  );
+  
+  @return map-get($z-indexes, $name);
+}
+
+// Get breakpoint value
+@function breakpoint($name) {
+  $breakpoints: (
+    'sm': $breakpoint-sm,
+    'md': $breakpoint-md,
+    'lg': $breakpoint-lg,
+    'xl': $breakpoint-xl,
+    'xxl': $breakpoint-xxl
+  );
+  
+  @return map-get($breakpoints, $name);
+}
