@@ -9,13 +9,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 // Import các components chung
 import Home from '@/views/Home.vue'
 import NotFound from '@/views/NotFound.vue'
+import MainLayout from '@/views/layouts/MainLayout.vue'
 
 // Định nghĩa các routes chính
 const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home,
+    component: MainLayout,
     meta: {
       title: 'Trang chủ'
     }
